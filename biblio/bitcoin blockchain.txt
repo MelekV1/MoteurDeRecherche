@@ -1,0 +1,73 @@
+Bitcoin[a] (₿) is a cryptocurrency. It is a decentralized digital currency without a central bank or single administrator that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.[8]
+
+Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain. Bitcoin was invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto[15] and started in 2009[16] when its source code was released as open-source software.[7]:ch. 1 Bitcoins are created as a reward for a process known as mining. They can be exchanged for other currencies, products, and services.[17] Research produced by University of Cambridge estimates that in 2017, there were 2.9 to 5.8 million unique users using a cryptocurrency wallet, most of them using bitcoin.[18]
+
+Bitcoin has been praised and criticized. Critics noted its use in illegal transactions, its high electricity consumption, price volatility, and thefts from exchanges. Some economists, including several Nobel laureates, have characterized it as a speculative bubble. Bitcoin has also been used as an investment, although several regulatory agencies have issued investor alerts about bitcoin.
+History
+Main article: History of bitcoin
+Creation
+The domain name "bitcoin.org" was registered on 18 August 2008.[21] On 31 October 2008, a link to a paper authored by Satoshi Nakamoto titled Bitcoin: A Peer-to-Peer Electronic Cash System[4] was posted to a cryptography mailing list.[22] Nakamoto implemented the bitcoin software as open-source code and released it in January 2009.[23][24][16] Nakamoto's identity remains unknown.[15]
+
+On 3 January 2009, the bitcoin network was created when Nakamoto mined the first block of the chain, known as the genesis block.[25][26] Embedded in the coinbase of this block was the text "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks".[16] This note references a headline published by The Times and has been interpreted as both a timestamp and a comment on the instability caused by fractional-reserve banking.[27]:18
+
+The receiver of the first bitcoin transaction was cypherpunk Hal Finney, who had created the first reusable proof-of-work system (RPoW) in 2004.[28] Finney downloaded the bitcoin software on its release date, and on 12 January 2009 received ten bitcoins from Nakamoto.[29][30] Other early cypherpunk supporters were creators of bitcoin predecessors: Wei Dai, creator of b-money, and Nick Szabo, creator of bit gold.[25] In 2010, the first known commercial transaction using bitcoin occurred when programmer Laszlo Hanyecz bought two Papa John's pizzas for ₿10,000.[31]
+
+Blockchain analysts estimate that Nakamoto had mined about one million bitcoins[32] before disappearing in 2010, when he handed the network alert key and control of the code repository over to Gavin Andresen. Andresen later became lead developer at the Bitcoin Foundation.[33][34] Andresen then sought to decentralize control. This left opportunity for controversy to develop over the future development path of bitcoin, in contrast to the perceived authority of Nakamoto's contributions.[35][34]
+
+2011–2012
+After early "proof-of-concept" transactions, the first major users of bitcoin were black markets, such as Silk Road. During its 30 months of existence, beginning in February 2011, Silk Road exclusively accepted bitcoins as payment, transacting 9.9 million in bitcoins, worth about $214 million.[36]:222
+
+In 2011, the price started at $0.30 per bitcoin, growing to $5.27 for the year. The price rose to $31.50 on 8 June. Within a month the price fell to $11.00. The next month it fell to $7.80, and in another month to $4.77.[37]
+
+Litecoin, an early bitcoin spin-off or altcoin, appeared in October 2011.[38] Many altcoins have been created since then.[39]
+
+In 2012, bitcoin prices started at $5.27 growing to $13.30 for the year.[37] By 9 January the price had risen to $7.38, but then crashed by 49% to $3.80 over the next 16 days. The price then rose to $16.41 on 17 August, but fell by 57% to $7.10 over the next three days.[40]
+
+The Bitcoin Foundation was founded in September 2012 to promote bitcoin's development and uptake.[41]
+
+2013–2016
+In 2013, prices started at $13.30 rising to $770 by 1 January 2014.[37]
+
+In March 2013 the blockchain temporarily split into two independent chains with different rules due to a bug in version 0.8 of the bitcoin software. The two blockchains operated simultaneously for six hours, each with its own version of the transaction history from the moment of the split. Normal operation was restored when the majority of the network downgraded to version 0.7 of the bitcoin software, selecting the backward compatible version of the blockchain. As a result, this blockchain became the longest chain and could be accepted by all participants, regardless of their bitcoin software version.[42] During the split, the Mt. Gox exchange briefly halted bitcoin deposits and the price dropped by 23% to $37[42][43] before recovering to previous level of approximately $48 in the following hours.[44]
+
+The US Financial Crimes Enforcement Network (FinCEN) established regulatory guidelines for "decentralized virtual currencies" such as bitcoin, classifying American bitcoin miners who sell their generated bitcoins as Money Service Businesses (MSBs), that are subject to registration or other legal obligations.[45][46][47]
+
+In April, exchanges BitInstant and Mt. Gox experienced processing delays due to insufficient capacity[48] resulting in the bitcoin price dropping from $266 to $76 before returning to $160 within six hours.[49] The bitcoin price rose to $259 on 10 April, but then crashed by 83% to $45 over the next three days.[40]
+
+On 15 May 2013, US authorities seized accounts associated with Mt. Gox after discovering it had not registered as a money transmitter with FinCEN in the US.[50][51] On 23 June 2013, the US Drug Enforcement Administration listed ₿11.02 as a seized asset in a United States Department of Justice seizure notice pursuant to 21 U.S.C. § 881. This marked the first time a government agency had seized bitcoin.[52] The FBI seized about ₿30,000[53] in October 2013 from the dark web website Silk Road during the arrest of Ross William Ulbricht.[54][55][56] These bitcoins were sold at blind auction by the United States Marshals Service to venture capital investor Tim Draper.[53] Bitcoin's price rose to $755 on 19 November and crashed by 50% to $378 the same day. On 30 November 2013 the price reached $1,163 before starting a long-term crash, declining by 87% to $152 in January 2015.[40]
+
+On 5 December 2013, the People's Bank of China prohibited Chinese financial institutions from using bitcoins.[57] After the announcement, the value of bitcoins dropped,[58] and Baidu no longer accepted bitcoins for certain services.[59] Buying real-world goods with any virtual currency had been illegal in China since at least 2009.[60]
+
+In 2014, prices started at $770 and fell to $314 for the year.[37] On 30 July 2014, the Wikimedia Foundation started accepting donations of bitcoin.[61]
+
+In 2015, prices started at $314 and rose to $434 for the year. In 2016, prices rose and climbed up to $998 by 1 January 2017.[37]
+
+2017–2019
+On 15 July 2017, the controversial Segregated Witness [SegWit] software upgrade was approved ("locked in"). Segwit was intended to support the Lightning Network as well as improve scalability.[62] SegWit was subsequently activated on the network on 24 August 2017. The bitcoin price rose almost 50% in the week following SegWit's approval.[62] On 21 July 2017, bitcoin was trading at $2,748, up 52% from 14 July 2017's $1,835.[62] Supporters of large blocks who were dissatisfied with the activation of SegWit forked the software on 1 August 2017 to create Bitcoin Cash.
+
+Prices started at $998 in 2017 and rose to $13,412.44 on 1 January 2018,[37] after reaching its all-time high of $19,783.06 on 17 December 2017.[63]
+
+China banned trading in bitcoin, with first steps taken in September 2017, and a complete ban that started on 1 February 2018. Bitcoin prices then fell from $9,052 to $6,914 on 5 February 2018.[40] The percentage of bitcoin trading in the Chinese renminbi fell from over 90% in September 2017 to less than 1% in June 2018.[64]
+
+Throughout the rest of the first half of 2018, bitcoin's price fluctuated between $11,480 and $5,848. On 1 July 2018, bitcoin's price was $6,343.[65][66] The price on 1 January 2019 was $3,747, down 72% for 2018 and down 81% since the all-time high.[65][67]
+
+Bitcoin prices were negatively affected by several hacks or thefts from cryptocurrency exchanges, including thefts from Coincheck in January 2018, Coinrail and Bithumb in June, and Bancor in July. For the first six months of 2018, $761 million worth of cryptocurrencies was reported stolen from exchanges.[68] Bitcoin's price was affected even though other cryptocurrencies were stolen at Coinrail and Bancor as investors worried about the security of cryptocurrency exchanges.[69][70][71] In September 2019 the Intercontinental Exchange (the owner of the NYSE) began trading of bitcoin futures on its exchange called Bakkt.[72] Bakkt also announced that it would launch options on bitcoin in December 2019.[73] In December 2019 YouTube removed bitcoin and cryptocurrency videos, but later restored the content and they said they "made the wrong call."[74]
+
+In February 2019, Canadian cryptocurrency exchange Quadriga Fintech Solutions failed with approximately $200 million missing.[75] By June 2019 the price had recovered to $13,000.[76]
+
+2020
+According to CoinMetrics and Forbes, on 11 March 281,000 bitcoins were sold by owners who held them for only thirty days. This compared to 4,131 bitcoins that had laid dormant for a year or more indicating that the vast majority of the bitcoin volatility on that day was from recent buyers.[76] During the week of 11 March 2020 as a result of the COVID-19 pandemic cryptocurrency exchange Kraken experienced an 83% increase in the amount of account signups over the week of bitcoin's price collapse, a result of buyers looking to capitalize on the low price
+Units and divisibility
+The unit of account of the bitcoin system is a bitcoin. Ticker symbols used to represent bitcoin are BTC[b] and XBT.[c][81]:2 Its Unicode character is ₿.[1] Small amounts of bitcoin used as alternative units are millibitcoin (mBTC), and satoshi (sat). Named in homage to bitcoin's creator, a satoshi is the smallest amount within bitcoin representing 0.00000001 bitcoins, one hundred millionth of a bitcoin.[2] A millibitcoin equals 0.001 bitcoins; one thousandth of a bitcoin or 100,000 satoshis.[82]
+
+Blockchain
+
+Data structure of blocks in the ledger.
+
+Number of bitcoin transactions per month, semilogarithmic plot[83]
+
+Number of unspent transaction outputs[84]
+For broader coverage of this topic, see Blockchain.
+The bitcoin blockchain is a public ledger that records bitcoin transactions.[85] It is implemented as a chain of blocks, each block containing a hash of the previous block up to the genesis block[d] of the chain. A network of communicating nodes running bitcoin software maintains the blockchain.[36]:215–219 Transactions of the form payer X sends Y bitcoins to payee Z are broadcast to this network using readily available software applications.
+
+Network nodes can validate transactions, add them to their copy of the ledger, and then broadcast these ledger additions to other nodes. To achieve independent verification of the chain of ownership each network node stores its own copy of the blockchain.[86] At varying intervals of time averaging to every 10 minutes, a new group of accepted transactions, called a block, is created, added to the blockchain, and quickly published to all nodes, without requiring central oversight. This allows bitcoin software to determine when a particular bitcoin was spent, which is needed to prevent double-spending. A conventional ledger records the transfers of actual bills or promissory notes that exist apart from it, but the blockchain is the only place that bitcoins can be said to exist in the form of unspent outputs of transactions

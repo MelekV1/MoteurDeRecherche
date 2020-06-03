@@ -1,0 +1,14 @@
+History
+On August 10, 2015, Google Inc. announced plans to create a new public holding company, Alphabet Inc. Google CEO Larry Page made this announcement in a blog post on Google's official blog.[11] Alphabet would be created to restructure Google by moving subsidiaries from Google to Alphabet, narrowing Google's scope. The company would consist of Google as well as other businesses including X Development, Calico, Nest, Verily, Fiber, Makani, CapitalG, and GV.[6][12][13] Sundar Pichai, Product Chief, became the new CEO of Google, replacing Larry Page, who transitioned to the role of running Alphabet, along with Google co-founder Sergey Brin.[14][15]
+
+In his announcement, Page described the planned holding company as follows:[4][16]
+
+Alphabet is mostly a collection of companies. The largest of which, of course, is Google. This newer Google is a bit slimmed down, with the companies that are pretty far afield of our main internet products contained in Alphabet instead. ... Fundamentally, we believe this allows us more management scale, as we can run things independently that aren't very related.
+
+Page says the motivation behind the reorganization is to make Google "cleaner and more accountable and better". He also said he wanted to improve "the transparency and oversight of what we're doing", and to allow greater control of unrelated companies.[4][9]
+
+Former executive Eric Schmidt (now Technical Advisor) revealed in the conference in 2017 the inspiration for this structure came from Warren Buffett and his management structure of Berkshire Hathaway a decade ago.[17] Schmidt said it was he who encouraged Page and Brin to meet with Buffett in Omaha to see how Berkshire Hathaway was a holding company made of subsidiaries with strong CEOs who were trusted to run their businesses.[17]
+
+Before it became a subsidiary of Alphabet, Google Inc. was first structured as the owner of Alphabet. The roles were reversed after a placeholder subsidiary was created for the ownership of Alphabet, at which point the newly formed subsidiary was merged with Google. Google's stock was then converted to Alphabet's stock. Under the Delaware General Corporation Law (where Alphabet is incorporated), a holding company reorganization such as this can be done without a vote of shareholders, as this reorganization was.[18] The restructuring process was completed on October 2, 2015.[2] Alphabet retains Google Inc.'s stock price history and continues to trade under Google Inc.'s former ticker symbols "GOOG" and "GOOGL"; both classes of stock are components of major stock market indices such as the S&P 500 and NASDAQ-100.[19]
+
+On December 3, 2019, Page and Brin jointly announced that they would step down from their respective roles, remaining as employees and still the majority vote on the board of directors. Sundar Pichai, the CEO of Google, is to assume the CEO role at Alphabet while retaining the same at Google.

@@ -1,0 +1,267 @@
+Most modern deep learning models are based on artificial neural networks, specifically, Convolutional Neural Networks (CNN)s, although they can also include propositional formulas or latent variables organized layer-wise in deep generative models such as the nodes in deep belief networks and deep Boltzmann machines.[12]
+
+In deep learning, each level learns to transform its input data into a slightly more abstract and composite representation. In an image recognition application, the raw input may be a matrix of pixels; the first representational layer may abstract the pixels and encode edges; the second layer may compose and encode arrangements of edges; the third layer may encode a nose and eyes; and the fourth layer may recognize that the image contains a face. Importantly, a deep learning process can learn which features to optimally place in which level on its own. (Of course, this does not completely eliminate the need for hand-tuning; for example, varying numbers of layers and layer sizes can provide different degrees of abstraction.)[1][13]
+
+The word "deep" in "deep learning" refers to the number of layers through which the data is transformed. More precisely, deep learning systems have a substantial credit assignment path (CAP) depth. The CAP is the chain of transformations from input to output. CAPs describe potentially causal connections between input and output. For a feedforward neural network, the depth of the CAPs is that of the network and is the number of hidden layers plus one (as the output layer is also parameterized). For recurrent neural networks, in which a signal may propagate through a layer more than once, the CAP depth is potentially unlimited.[2] No universally agreed upon threshold of depth divides shallow learning from deep learning, but most researchers agree that deep learning involves CAP depth higher than 2. CAP of depth 2 has been shown to be a universal approximator in the sense that it can emulate any function.[14] Beyond that, more layers do not add to the function approximator ability of the network. Deep models (CAP > 2) are able to extract better features than shallow models and hence, extra layers help in learning the features effectively.
+
+Deep learning architectures can be constructed with a greedy layer-by-layer method.[15] Deep learning helps to disentangle these abstractions and pick out which features improve performance.[1]
+
+For supervised learning tasks, deep learning methods eliminate feature engineering, by translating the data into compact intermediate representations akin to principal components, and derive layered structures that remove redundancy in representation.
+
+Deep learning algorithms can be applied to unsupervised learning tasks. This is an important benefit because unlabeled data are more abundant than the labeled data. Examples of deep structures that can be trained in an unsupervised manner are neural history compressors[16] and deep belief networks.[1][17]
+
+Interpretations
+Deep neural networks are generally interpreted in terms of the universal approximation theorem[18][19][20][21][22][23] or probabilistic inference.[11][12][1][2][17][24][25]
+
+The classic universal approximation theorem concerns the capacity of feedforward neural networks with a single hidden layer of finite size to approximate continuous functions.[18][19][20][21][22] In 1989, the first proof was published by George Cybenko for sigmoid activation functions[19] and was generalised to feed-forward multi-layer architectures in 1991 by Kurt Hornik.[20] Recent work also showed that universal approximation also holds for non-bounded activation functions such as the rectified linear unit.[26]
+
+The universal approximation theorem for deep neural networks concerns the capacity of networks with bounded width but the depth is allowed to grow. Lu et al.[23] proved that if the width of a deep neural network with ReLU activation is strictly larger than the input dimension, then the network can approximate any Lebesgue integrable function; If the width is smaller or equal to the input dimension, then deep neural network is not a universal approximator.
+
+The probabilistic interpretation[24] derives from the field of machine learning. It features inference,[11][12][1][2][17][24] as well as the optimization concepts of training and testing, related to fitting and generalization, respectively. More specifically, the probabilistic interpretation considers the activation nonlinearity as a cumulative distribution function.[24] The probabilistic interpretation led to the introduction of dropout as regularizer in neural networks.[27] The probabilistic interpretation was introduced by researchers including Hopfield, Widrow and Narendra and popularized in surveys such as the one by Bishop.[28]
+
+History
+The first general, working learning algorithm for supervised, deep, feedforward, multilayer perceptrons was published by Alexey Ivakhnenko and Lapa in 1967.[29] A 1971 paper described already a deep network with 8 layers trained by the group method of data handling algorithm.[30] Other deep learning working architectures, specifically those built for computer vision, began with the Neocognitron introduced by Kunihiko Fukushima in 1980.[31]
+
+The term Deep Learning was introduced to the machine learning community by Rina Dechter in 1986,[32][16] and to artificial neural networks by Igor Aizenberg and colleagues in 2000, in the context of Boolean threshold neurons.[33][34]
+
+In 1989, Yann LeCun et al. applied the standard backpropagation algorithm, which had been around as the reverse mode of automatic differentiation since 1970,[35][36][37][38] to a deep neural network with the purpose of recognizing handwritten ZIP codes on mail. While the algorithm worked, training required 3 days.[39]
+
+By 1991 such systems were used for recognizing isolated 2-D hand-written digits, while recognizing 3-D objects was done by matching 2-D images with a handcrafted 3-D object model. Weng et al. suggested that a human brain does not use a monolithic 3-D object model and in 1992 they published Cresceptron,[40][41][42] a method for performing 3-D object recognition in cluttered scenes. Because it directly used natural images, Cresceptron started the beginning of general-purpose visual learning for natural 3D worlds. Cresceptron is a cascade of layers similar to Neocognitron. But while Neocognitron required a human programmer to hand-merge features, Cresceptron learned an open number of features in each layer without supervision, where each feature is represented by a convolution kernel. Cresceptron segmented each learned object from a cluttered scene through back-analysis through the network. Max pooling, now often adopted by deep neural networks (e.g. ImageNet tests), was first used in Cresceptron to reduce the position resolution by a factor of (2x2) to 1 through the cascade for better generalization.
+
+In 1994, André de Carvalho, together with Mike Fairhurst and David Bisset, published experimental results of a multi-layer boolean neural network, also known as a weightless neural network, composed of a 3-layers self-organising feature extraction neural network module (SOFT) followed by a multi-layer classification neural network module (GSN), which were independently trained. Each layer in the feature extraction module extracted features with growing complexity regarding the previous layer.[43]
+
+In 1995, Brendan Frey demonstrated that it was possible to train (over two days) a network containing six fully connected layers and several hundred hidden units using the wake-sleep algorithm, co-developed with Peter Dayan and Hinton.[44] Many factors contribute to the slow speed, including the vanishing gradient problem analyzed in 1991 by Sepp Hochreiter.[45][46]
+
+Simpler models that use task-specific handcrafted features such as Gabor filters and support vector machines (SVMs) were a popular choice in the 1990s and 2000s, because of artificial neural network's (ANN) computational cost and a lack of understanding of how the brain wires its biological networks.
+
+Both shallow and deep learning (e.g., recurrent nets) of ANNs have been explored for many years.[47][48][49] These methods never outperformed non-uniform internal-handcrafting Gaussian mixture model/Hidden Markov model (GMM-HMM) technology based on generative models of speech trained discriminatively.[50] Key difficulties have been analyzed, including gradient diminishing[45] and weak temporal correlation structure in neural predictive models.[51][52] Additional difficulties were the lack of training data and limited computing power.
+
+Most speech recognition researchers moved away from neural nets to pursue generative modeling. An exception was at SRI International in the late 1990s. Funded by the US government's NSA and DARPA, SRI studied deep neural networks in speech and speaker recognition. The speaker recognition team led by Larry Heck reported significant success with deep neural networks in speech processing in the 1998 National Institute of Standards and Technology Speaker Recognition evaluation.[53] The SRI deep neural network was then deployed in the Nuance Verifier, representing the first major industrial application of deep learning.[54]
+
+The principle of elevating "raw" features over hand-crafted optimization was first explored successfully in the architecture of deep autoencoder on the "raw" spectrogram or linear filter-bank features in the late 1990s,[54] showing its superiority over the Mel-Cepstral features that contain stages of fixed transformation from spectrograms. The raw features of speech, waveforms, later produced excellent larger-scale results.[55]
+
+Many aspects of speech recognition were taken over by a deep learning method called long short-term memory (LSTM), a recurrent neural network published by Hochreiter and Schmidhuber in 1997.[56] LSTM RNNs avoid the vanishing gradient problem and can learn "Very Deep Learning" tasks[2] that require memories of events that happened thousands of discrete time steps before, which is important for speech. In 2003, LSTM started to become competitive with traditional speech recognizers on certain tasks.[57] Later it was combined with connectionist temporal classification (CTC)[58] in stacks of LSTM RNNs.[59] In 2015, Google's speech recognition reportedly experienced a dramatic performance jump of 49% through CTC-trained LSTM, which they made available through Google Voice Search.[60]
+
+In 2006, publications by Geoff Hinton, Ruslan Salakhutdinov, Osindero and Teh[61] [62][63] showed how a many-layered feedforward neural network could be effectively pre-trained one layer at a time, treating each layer in turn as an unsupervised restricted Boltzmann machine, then fine-tuning it using supervised backpropagation.[64] The papers referred to learning for deep belief nets.
+
+Deep learning is part of state-of-the-art systems in various disciplines, particularly computer vision and automatic speech recognition (ASR). Results on commonly used evaluation sets such as TIMIT (ASR) and MNIST (image classification), as well as a range of large-vocabulary speech recognition tasks have steadily improved.[65][66][67] Convolutional neural networks (CNNs) were superseded for ASR by CTC[58] for LSTM.[56][60][68][69][70][71][72] but are more successful in computer vision.
+
+The impact of deep learning in industry began in the early 2000s, when CNNs already processed an estimated 10% to 20% of all the checks written in the US, according to Yann LeCun.[73] Industrial applications of deep learning to large-scale speech recognition started around 2010.
+
+The 2009 NIPS Workshop on Deep Learning for Speech Recognition[74] was motivated by the limitations of deep generative models of speech, and the possibility that given more capable hardware and large-scale data sets that deep neural nets (DNN) might become practical. It was believed that pre-training DNNs using generative models of deep belief nets (DBN) would overcome the main difficulties of neural nets.[75] However, it was discovered that replacing pre-training with large amounts of training data for straightforward backpropagation when using DNNs with large, context-dependent output layers produced error rates dramatically lower than then-state-of-the-art Gaussian mixture model (GMM)/Hidden Markov Model (HMM) and also than more-advanced generative model-based systems.[65][76] The nature of the recognition errors produced by the two types of systems was characteristically different,[77][74] offering technical insights into how to integrate deep learning into the existing highly efficient, run-time speech decoding system deployed by all major speech recognition systems.[11][78][79] Analysis around 2009–2010, contrasted the GMM (and other generative speech models) vs. DNN models, stimulated early industrial investment in deep learning for speech recognition,[77][74] eventually leading to pervasive and dominant use in that industry. That analysis was done with comparable performance (less than 1.5% in error rate) between discriminative DNNs and generative models.[65][77][75][80]
+
+In 2010, researchers extended deep learning from TIMIT to large vocabulary speech recognition, by adopting large output layers of the DNN based on context-dependent HMM states constructed by decision trees.[81][82][83][78]
+
+Advances in hardware have enabled renewed interest in deep learning. In 2009, Nvidia was involved in what was called the “big bang” of deep learning, “as deep-learning neural networks were trained with Nvidia graphics processing units (GPUs).”[84] That year, Google Brain used Nvidia GPUs to create capable DNNs. While there, Andrew Ng determined that GPUs could increase the speed of deep-learning systems by about 100 times.[85] In particular, GPUs are well-suited for the matrix/vector computations involved in machine learning.[86][87][88] GPUs speed up training algorithms by orders of magnitude, reducing running times from weeks to days.[89][90] Further, specialized hardware and algorithm optimizations can be used for efficient processing of deep learning models.[91]
+In 2012, a team led by George E. Dahl won the "Merck Molecular Activity Challenge" using multi-task deep neural networks to predict the biomolecular target of one drug.[92][93] In 2014, Hochreiter's group used deep learning to detect off-target and toxic effects of environmental chemicals in nutrients, household products and drugs and won the "Tox21 Data Challenge" of NIH, FDA and NCATS.[94][95][96]
+
+Significant additional impacts in image or object recognition were felt from 2011 to 2012. Although CNNs trained by backpropagation had been around for decades, and GPU implementations of NNs for years, including CNNs, fast implementations of CNNs with max-pooling on GPUs in the style of Ciresan and colleagues were needed to progress on computer vision.[86][88][39][97][2] In 2011, this approach achieved for the first time superhuman performance in a visual pattern recognition contest. Also in 2011, it won the ICDAR Chinese handwriting contest, and in May 2012, it won the ISBI image segmentation contest.[98] Until 2011, CNNs did not play a major role at computer vision conferences, but in June 2012, a paper by Ciresan et al. at the leading conference CVPR[4] showed how max-pooling CNNs on GPU can dramatically improve many vision benchmark records. In October 2012, a similar system by Krizhevsky et al.[5] won the large-scale ImageNet competition by a significant margin over shallow machine learning methods. In November 2012, Ciresan et al.'s system also won the ICPR contest on analysis of large medical images for cancer detection, and in the following year also the MICCAI Grand Challenge on the same topic.[99] In 2013 and 2014, the error rate on the ImageNet task using deep learning was further reduced, following a similar trend in large-scale speech recognition. The Wolfram Image Identification project publicized these improvements.[100]
+
+Image classification was then extended to the more challenging task of generating descriptions (captions) for images, often as a combination of CNNs and LSTMs.[101][102][103][104]
+
+Some researchers assess that the October 2012 ImageNet victory anchored the start of a "deep learning revolution" that has transformed the AI industry.[105]
+
+In March 2019, Yoshua Bengio, Geoffrey Hinton and Yann LeCun were awarded the Turing Award for conceptual and engineering breakthroughs that have made deep neural networks a critical component of computing.
+Artificial neural networks
+Main article: Artificial neural network
+Artificial neural networks (ANNs) or connectionist systems are computing systems inspired by the biological neural networks that constitute animal brains. Such systems learn (progressively improve their ability) to do tasks by considering examples, generally without task-specific programming. For example, in image recognition, they might learn to identify images that contain cats by analyzing example images that have been manually labeled as "cat" or "no cat" and using the analytic results to identify cats in other images. They have found most use in applications difficult to express with a traditional computer algorithm using rule-based programming.
+
+An ANN is based on a collection of connected units called artificial neurons, (analogous to biological neurons in a biological brain). Each connection (synapse) between neurons can transmit a signal to another neuron. The receiving (postsynaptic) neuron can process the signal(s) and then signal downstream neurons connected to it. Neurons may have state, generally represented by real numbers, typically between 0 and 1. Neurons and synapses may also have a weight that varies as learning proceeds, which can increase or decrease the strength of the signal that it sends downstream.
+
+Typically, neurons are organized in layers. Different layers may perform different kinds of transformations on their inputs. Signals travel from the first (input), to the last (output) layer, possibly after traversing the layers multiple times.
+
+The original goal of the neural network approach was to solve problems in the same way that a human brain would. Over time, attention focused on matching specific mental abilities, leading to deviations from biology such as backpropagation, or passing information in the reverse direction and adjusting the network to reflect that information.
+
+Neural networks have been used on a variety of tasks, including computer vision, speech recognition, machine translation, social network filtering, playing board and video games and medical diagnosis.
+
+As of 2017, neural networks typically have a few thousand to a few million units and millions of connections. Despite this number being several order of magnitude less than the number of neurons on a human brain, these networks can perform many tasks at a level beyond that of humans (e.g., recognizing faces, playing "Go"[106] ).
+
+Automatic speech recognition
+Main article: Speech recognition
+Large-scale automatic speech recognition is the first and most convincing successful case of deep learning. LSTM RNNs can learn "Very Deep Learning" tasks[2] that involve multi-second intervals containing speech events separated by thousands of discrete time steps, where one time step corresponds to about 10 ms. LSTM with forget gates[114] is competitive with traditional speech recognizers on certain tasks.[57]
+
+The initial success in speech recognition was based on small-scale recognition tasks based on TIMIT. The data set contains 630 speakers from eight major dialects of American English, where each speaker reads 10 sentences.[124] Its small size lets many configurations be tried. More importantly, the TIMIT task concerns phone-sequence recognition, which, unlike word-sequence recognition, allows weak phone bigram language models. This lets the strength of the acoustic modeling aspects of speech recognition be more easily analyzed. The error rates listed below, including these early results and measured as percent phone error rates (PER), have been summarized since 1991.
+Image recognition
+Main article: Computer vision
+A common evaluation set for image classification is the MNIST database data set. MNIST is composed of handwritten digits and includes 60,000 training examples and 10,000 test examples. As with TIMIT, its small size lets users test multiple configurations. A comprehensive list of results on this set is available.[132]
+
+Deep learning-based image recognition has become "superhuman", producing more accurate results than human contestants. This first occurred in 2011.[133]
+
+Deep learning-trained vehicles now interpret 360° camera views.[134] Another example is Facial Dysmorphology Novel Analysis (FDNA) used to analyze cases of human malformation connected to a large database of genetic syndromes.
+
+Visual art processing
+Closely related to the progress that has been made in image recognition is the increasing application of deep learning techniques to various visual art tasks. DNNs have proven themselves capable, for example, of a) identifying the style period of a given painting, b) Neural Style Transfer - capturing the style of a given artwork and applying it in a visually pleasing manner to an arbitrary photograph or video, and c) generating striking imagery based on random visual input fields.[135][136]
+
+Natural language processing
+Main article: Natural language processing
+Neural networks have been used for implementing language models since the early 2000s.[109][137] LSTM helped to improve machine translation and language modeling.[110][111][112]
+
+Other key techniques in this field are negative sampling[138] and word embedding. Word embedding, such as word2vec, can be thought of as a representational layer in a deep learning architecture that transforms an atomic word into a positional representation of the word relative to other words in the dataset; the position is represented as a point in a vector space. Using word embedding as an RNN input layer allows the network to parse sentences and phrases using an effective compositional vector grammar. A compositional vector grammar can be thought of as probabilistic context free grammar (PCFG) implemented by an RNN.[139] Recursive auto-encoders built atop word embeddings can assess sentence similarity and detect paraphrasing.[139] Deep neural architectures provide the best results for constituency parsing,[140] sentiment analysis,[141] information retrieval,[142][143] spoken language understanding,[144] machine translation,[110][145] contextual entity linking,[145] writing style recognition,[146] Text classification and others.[147]
+
+Recent developments generalize word embedding to sentence embedding.
+
+Google Translate (GT) uses a large end-to-end long short-term memory network.[148][149][150][151][152][153] Google Neural Machine Translation (GNMT) uses an example-based machine translation method in which the system "learns from millions of examples."[149] It translates "whole sentences at a time, rather than pieces. Google Translate supports over one hundred languages.[149] The network encodes the "semantics of the sentence rather than simply memorizing phrase-to-phrase translations".[149][154] GT uses English as an intermediate between most language pairs.[154]
+
+Drug discovery and toxicology
+For more information, see Drug discovery and Toxicology.
+A large percentage of candidate drugs fail to win regulatory approval. These failures are caused by insufficient efficacy (on-target effect), undesired interactions (off-target effects), or unanticipated toxic effects.[155][156] Research has explored use of deep learning to predict the biomolecular targets,[92][93] off-targets, and toxic effects of environmental chemicals in nutrients, household products and drugs.[94][95][96]
+
+AtomNet is a deep learning system for structure-based rational drug design.[157] AtomNet was used to predict novel candidate biomolecules for disease targets such as the Ebola virus[158] and multiple sclerosis.[159][160]
+
+In 2019 generative neural networks were used to produce molecules that were validated experimentally all the way into mice.[161][162]
+
+Customer relationship management
+Main article: Customer relationship management
+Deep reinforcement learning has been used to approximate the value of possible direct marketing actions, defined in terms of RFM variables. The estimated value function was shown to have a natural interpretation as customer lifetime value.[163]
+
+Recommendation systems
+Main article: Recommender system
+Recommendation systems have used deep learning to extract meaningful features for a latent factor model for content-based music and journal recommendations.[164][165] Multi-view deep learning has been applied for learning user preferences from multiple domains.[166] The model uses a hybrid collaborative and content-based approach and enhances recommendations in multiple tasks.
+Bioinformatics
+Main article: Bioinformatics
+An autoencoder ANN was used in bioinformatics, to predict gene ontology annotations and gene-function relationships.[167]
+
+In medical informatics, deep learning was used to predict sleep quality based on data from wearables[168] and predictions of health complications from electronic health record data.[169] Deep learning has also showed efficacy in healthcare.[170]
+
+Medical Image Analysis
+Deep learning has been shown to produce competitive results in medical application such as cancer cell classification, lesion detection, organ segmentation and image enhancement[171][172]
+
+Mobile advertising
+Finding the appropriate mobile audience for mobile advertising is always challenging, since many data points must be considered and analyzed before a target segment can be created and used in ad serving by any ad server.[173] Deep learning has been used to interpret large, many-dimensioned advertising datasets. Many data points are collected during the request/serve/click internet advertising cycle. This information can form the basis of machine learning to improve ad selection.
+
+Image restoration
+Deep learning has been successfully applied to inverse problems such as denoising, super-resolution, inpainting, and film colorization.[174] These applications include learning methods such as "Shrinkage Fields for Effective Image Restoration"[175] which trains on an image dataset, and Deep Image Prior, which trains on the image that needs restoration.
+
+Financial fraud detection
+Deep learning is being successfully applied to financial fraud detection and anti-money laundering. "Deep anti-money laundering detection system can spot and recognize relationships and similarities between data and, further down the road, learn to detect anomalies or classify and predict specific events". The solution leverages both supervised learning techniques, such as the classification of suspicious transactions, and unsupervised learning, e.g. anomaly detection. [176]
+
+Military
+The United States Department of Defense applied deep learning to train robots in new tasks through observation.[177]
+
+Relation to human cognitive and brain development
+Deep learning is closely related to a class of theories of brain development (specifically, neocortical development) proposed by cognitive neuroscientists in the early 1990s.[178][179][180][181] These developmental theories were instantiated in computational models, making them predecessors of deep learning systems. These developmental models share the property that various proposed learning dynamics in the brain (e.g., a wave of nerve growth factor) support the self-organization somewhat analogous to the neural networks utilized in deep learning models. Like the neocortex, neural networks employ a hierarchy of layered filters in which each layer considers information from a prior layer (or the operating environment), and then passes its output (and possibly the original input), to other layers. This process yields a self-organizing stack of transducers, well-tuned to their operating environment. A 1995 description stated, "...the infant's brain seems to organize itself under the influence of waves of so-called trophic-factors ... different regions of the brain become connected sequentially, with one layer of tissue maturing before another and so on until the whole brain is mature."[182]
+
+A variety of approaches have been used to investigate the plausibility of deep learning models from a neurobiological perspective. On the one hand, several variants of the backpropagation algorithm have been proposed in order to increase its processing realism.[183][184] Other researchers have argued that unsupervised forms of deep learning, such as those based on hierarchical generative models and deep belief networks, may be closer to biological reality.[185][186] In this respect, generative neural network models have been related to neurobiological evidence about sampling-based processing in the cerebral cortex.[187]
+
+Although a systematic comparison between the human brain organization and the neuronal encoding in deep networks has not yet been established, several analogies have been reported. For example, the computations performed by deep learning units could be similar to those of actual neurons[188][189] and neural populations.[190] Similarly, the representations developed by deep learning models are similar to those measured in the primate visual system[191] both at the single-unit[192] and at the population[193] levels.
+
+Commercial activity
+Facebook's AI lab performs tasks such as automatically tagging uploaded pictures with the names of the people in them.[194]
+
+Google's DeepMind Technologies developed a system capable of learning how to play Atari video games using only pixels as data input. In 2015 they demonstrated their AlphaGo system, which learned the game of Go well enough to beat a professional Go player.[195][196][197] Google Translate uses a neural network to translate between more than 100 languages.
+
+In 2015, Blippar demonstrated a mobile augmented reality application that uses deep learning to recognize objects in real time.[198]
+
+In 2017, Covariant.ai was launched, which focuses on integrating deep learning into factories.[199]
+
+As of 2008,[200] researchers at The University of Texas at Austin (UT) developed a machine learning framework called Training an Agent Manually via Evaluative Reinforcement, or TAMER, which proposed new methods for robots or computer programs to learn how to perform tasks by interacting with a human instructor.[177] First developed as TAMER, a new algorithm called Deep TAMER was later introduced in 2018 during a collaboration between U.S. Army Research Laboratory (ARL) and UT researchers. Deep TAMER used deep learning to provide a robot the ability to learn new tasks through observation.[177] Using Deep TAMER, a robot learned a task with a human trainer, watching video streams or observing a human perform a task in-person. The robot later practiced the task with the help of some coaching from the trainer, who provided feedback such as “good job” and “bad job.”[201]
+
+Criticism and comment
+Deep learning has attracted both criticism and comment, in some cases from outside the field of computer science.
+
+Theory
+See also: Explainable AI
+A main criticism concerns the lack of theory surrounding some methods.[202] Learning in the most common deep architectures is implemented using well-understood gradient descent. However, the theory surrounding other algorithms, such as contrastive divergence is less clear.[citation needed] (e.g., Does it converge? If so, how fast? What is it approximating?) Deep learning methods are often looked at as a black box, with most confirmations done empirically, rather than theoretically.[203]
+
+Others point out that deep learning should be looked at as a step towards realizing strong AI, not as an all-encompassing solution. Despite the power of deep learning methods, they still lack much of the functionality needed for realizing this goal entirely. Research psychologist Gary Marcus noted:
+
+"Realistically, deep learning is only part of the larger challenge of building intelligent machines. Such techniques lack ways of representing causal relationships (...) have no obvious ways of performing logical inferences, and they are also still a long way from integrating abstract knowledge, such as information about what objects are, what they are for, and how they are typically used. The most powerful A.I. systems, like Watson (...) use techniques like deep learning as just one element in a very complicated ensemble of techniques, ranging from the statistical technique of Bayesian inference to deductive reasoning."[204]
+
+As an alternative to this emphasis on the limits of deep learning, one author speculated that it might be possible to train a machine vision stack to perform the sophisticated task of discriminating between "old master" and amateur figure drawings, and hypothesized that such a sensitivity might represent the rudiments of a non-trivial machine empathy.[205] This same author proposed that this would be in line with anthropology, which identifies a concern with aesthetics as a key element of behavioral modernity.[206]
+
+In further reference to the idea that artistic sensitivity might inhere within relatively low levels of the cognitive hierarchy, a published series of graphic representations of the internal states of deep (20-30 layers) neural networks attempting to discern within essentially random data the images on which they were trained[207] demonstrate a visual appeal: the original research notice received well over 1,000 comments, and was the subject of what was for a time the most frequently accessed article on The Guardian's[208] website.
+
+Errors
+Some deep learning architectures display problematic behaviors,[209] such as confidently classifying unrecognizable images as belonging to a familiar category of ordinary images[210] and misclassifying minuscule perturbations of correctly classified images.[211] Goertzel hypothesized that these behaviors are due to limitations in their internal representations and that these limitations would inhibit integration into heterogeneous multi-component artificial general intelligence (AGI) architectures.[209] These issues may possibly be addressed by deep learning architectures that internally form states homologous to image-grammar[212] decompositions of observed entities and events.[209] Learning a grammar (visual or linguistic) from training data would be equivalent to restricting the system to commonsense reasoning that operates on concepts in terms of grammatical production rules and is a basic goal of both human language acquisition[213] and artificial intelligence (AI).[214]
+
+Cyber threat
+As deep learning moves from the lab into the world, research and experience shows that artificial neural networks are vulnerable to hacks and deception.[215] By identifying patterns that these systems use to function, attackers can modify inputs to ANNs in such a way that the ANN finds a match that human observers would not recognize. For example, an attacker can make subtle changes to an image such that the ANN finds a match even though the image looks to a human nothing like the search target. Such a manipulation is termed an “adversarial attack.”[216] In 2016 researchers used one ANN to doctor images in trial and error fashion, identify another's focal points and thereby generate images that deceived it. The modified images looked no different to human eyes. Another group showed that printouts of doctored images then photographed successfully tricked an image classification system.[217] One defense is reverse image search, in which a possible fake image is submitted to a site such as TinEye that can then find other instances of it. A refinement is to search using only parts of the image, to identify images from which that piece may have been taken.[218]
+
+Another group showed that certain psychedelic spectacles could fool a facial recognition system into thinking ordinary people were celebrities, potentially allowing one person to impersonate another. In 2017 researchers added stickers to stop signs and caused an ANN to misclassify them.[217]
+
+ANNs can however be further trained to detect attempts at deception, potentially leading attackers and defenders into an arms race similar to the kind that already defines the malware defense industry. ANNs have been trained to defeat ANN-based anti-malware software by repeatedly attacking a defense with malware that was continually altered by a genetic algorithm until it tricked the anti-malware while retaining its ability to damage the target.[217]
+
+Another group demonstrated that certain sounds could make the Google Now voice command system open a particular web address that would download malware.[217]
+
+In “data poisoning,” false data is continually smuggled into a machine learning system's training set to prevent it from achieving mastery.[217]
+
+Reliance on human microwork
+Most Deep Learning systems rely on training and verification data that is generated and/or annotated by humans. It has been argued in media philosophy that not only low-paid clickwork (e.g. on Amazon Mechanical Turk) is regularly deployed for this purpose, but also implicit forms of human microwork that are often not recognized as such.[219] The philosopher Rainer Mühlhoff distinguishes five types of "machinic capture" of human microwork to generate training data: (1) gamification (the embedding of annotation or computation tasks in the flow of a game), (2) "trapping and tracking" (e.g. CAPTCHAs for image recognition or click-tracking on Google search results pages), (3) exploitation of social motivations (e.g. tagging faces on Facebook to obtain labeled facial images), (4) information mining (e.g. by leveraging quantified-self devices such as activity trackers) and (5) clickwork.[219] Mühlhoff argues that in most commercial end-user applications of Deep Learning such as Facebook's face recognition system, the need for training data does not stop once an ANN is trained. Rather, there is a continued demand for human-generated verification data to constantly calibrate and update the ANN. For this purpose Facebook introduced the feature that once a user is automatically recognized in an image, 
+they receive a notification. They can choose whether of not they like to be publicly labeled on the image, or tell Facebook that it is not them in the picture.[220]
+ This user interface is a mechanism to generate "a constant stream of  verification data"[219] to further train the network in real-time. 
+As Mühlhoff argues, involvement of human users to generate training and verification data is so typical for most commercial end-user applications of Deep Learning that such systems may be referred to as "human-aided artificial intelligence".[219]
+Description et contexte
+L’apprentissage profond fait partie d’une famille de méthodes d'apprentissage automatique fondées sur l’apprentissage de modèles de données. Une observation (une image, p. ex.) peut être représentée de différentes façons par un vecteur de données, notamment en fonction de :
+
+L’intensité des pixels dont elle est constituée ;
+Ses différentes arêtes ;
+Ses différentes régions, aux formes particulières.
+Certaines représentations et une bonne capacité d'analyse automatique des différenciations4 rendent la tâche d’apprentissage plus efficace.
+
+Une des perspectives des techniques de l'apprentissage profond est le remplacement de certains travaux, encore relativement laborieux, par des modèles algorithmiques d’apprentissage supervisé, non supervisé (c’est-à-dire ne nécessitant pas de connaissances spécifiques quant au problème étudié) ou encore par des techniques d’extraction hiérarchique des caractéristiques.
+
+Les recherches dans ce domaine s’efforcent de construire de meilleures représentations du réel et de créer des modèles capables d’apprendre ces représentations à partir de données non labellisées à grande échelle. Certaines de ces représentations s’inspirent des dernières avancées en neuroscience. Il s'agit, grosso modo, d'interprétations du traitement de l’information et des modèles de communication du système nerveux, à l'image de la façon dont le système nerveux établit des connexions en fonction des messages reçus, de la réponse neuronale et du poids des connexions entre les neurones du cerveau.
+
+Les différentes architectures d’apprentissage profond telles que les réseaux de neurones profonds, les réseaux neuronal convolutif« convolutional deep neural networks », et les réseaux de croyance profonde (en) ont plusieurs champs d’application :
+
+La vision par ordinateur (reconnaissance de formes) ;
+La reconnaissance automatique de la parole ;
+Le traitement automatique du langage naturel ;
+La reconnaissance audio et la bio-informatique5,6.
+Dans ces deux derniers domaines, notamment, elles ont obtenu des résultats très prometteurs.
+
+Définition
+Les techniques d'apprentissage profond constituent une classe d’algorithmes d'apprentissage automatique qui :
+
+Utilisent différentes couches d’unité de traitement non linéaire pour l’extraction et la transformation des caractéristiques ; chaque couche prend en entrée la sortie de la précédente ; les algorithmes peuvent être supervisés ou non supervisés, et leurs applications comprennent la reconnaissance de modèles et la classification statistique ;
+Fonctionnent avec un apprentissage à plusieurs niveaux de détail ou de représentation des données ; à travers les différentes couches, on passe de paramètres de bas niveau à des paramètres de plus haut niveau, où les différents niveaux correspondent à différents niveaux d’abstraction des données.
+Ces architectures permettent aujourd’hui de conférer du « sens » à des données en leur donnant la forme d’images, de sons ou de textes.
+
+L'apprentissage profond utilise des couches cachées de réseaux de neurones artificiels, des « machines de Boltzmann restreintes », et des séries de calculs propositionnels complexes. Les algorithmes d'apprentissage profond s’opposent aux algorithmes d’apprentissage peu profonds du fait du nombre de transformations réalisées sur les données entre la couche d’entrée et la couche de sortie, où une transformation correspond à une unité de traitement définie par des poids et des seuils.
+
+Historique
+Le concept d'apprentissage profond prend forme dans les années 2010, avec la convergence de quatre facteurs :
+
+Des réseaux de neurones artificiels7 multicouches (eux-mêmes issus entre autres du concept de perceptron, datant de la fin des années 1950) ;
+Des algorithmes d'analyse discriminante8 et apprenants9 (dont l'émergence remonte aux années 1980) ;
+Des machines dont la puissance de traitement permet de traiter des données massives ;
+Des bases de données suffisamment grandes, capables d'entraîner des systèmes de grandes tailles10.
+En octobre 2015, le programme AlphaGo, à qui l'on a « appris » à jouer au jeu de go grâce à la méthode de l'apprentissage profond, bat le champion européen Fan Hui11 par 5 parties à 0. En mars 2016, le même programme bat le champion du monde Lee Sedol par 4 parties à 112.
+
+Domaines d'application
+L'apprentissage profond s'applique à divers secteurs des NTIC, notamment :
+
+La reconnaissance visuelle — par exemple, d'un panneau de signalisation par un robot ou une voiture autonome13 — et vocale14 ;
+La robotique ;
+La bioinformatique15, p. ex., pour l'étude de l'ADN6 et des segments non codants du génome5, ou encore la Cytométrie16;
+La reconnaissance ou la comparaison de formes17 ;
+La sécurité ;
+La santé3 ;
+La pédagogie assistée par l'informatique18 ;
+L'art ;
+L'intelligence artificielle en général ;
+La traduction.
+La méthode du Deep Learning est aujourd'hui utilisée pour l'élaboration des moteurs de traduction automatique.
+
+L'apprentissage profond peut, par exemple, aider à :
+
+Mieux reconnaître des objets hautement déformables19 ;
+Analyser les émotions révélées par un visage photographié ou filmé20 ;
+Analyser les mouvements et position des doigts d'une main, ce qui peut être utile pour traduire les langues signées21 ;
+Améliorer le positionnement automatique d'une caméra, etc.22 ;
+Poser, dans certains cas, un diagnostic médical (ex. : reconnaissance automatique d'un cancer en imagerie médicale23), ou de prospective ou de prédiction (ex. : prédiction des propriétés d'un sol filmé par un robot24) ;
+Reproduire une oeuvre artistique à partir d'une photo à l’ordinateur25.
+Une application du deep learning à la santé publique est le projet Horus de la société Eyra26. Il s’agit d’un appareil portable utilisant la plate-forme NVidia Jetson, qui aide les mal-voyants ou les aveugles à s’orienter et à reconnaître des personnes ou des objets, en retranscrivant en audio une image captée par une caméra. Des liens entre l'apprentissage profond et la théorie de jeux ont été établis par Hamidou Tembine en utilisant notamment des jeux de type champ moyen27.
+
+En physique, l'apprentissage profond est utilisé pour la recherche sur les particules exotiques28.
+
+Réactions
+Certaines personnalités, parfois elles-mêmes issues de la communauté des concepteurs et fournisseurs en technologies, ont manifesté leur crainte de voir, à plus ou moins long terme, l'intelligence artificielle dépasser les performances de l'intelligence humaine29. Parmi ces personnalités figurent par exemple l'astrophysicien britannique Stephen Hawking30, l'un des fondateurs de Microsoft, Bill Gates31, le PDG de Tesla, Elon Musk32 et le spécialiste en IA33 et informaticien Stuart Russell. D'autres, comme Raymond Kurzweil, se réclamant de la philosophie transhumaniste, s'en réjouissent au contraire, qualifiant cette percée de singularité technologique.
+
+Ces craintes sont relativisées par des chercheurs en intelligence artificielle, notamment Yoshua Bengio. Ce dernier estime en effet que l'on a largement exagéré les progrès récents de l'IA et sous-estimé la lenteur du processus d'amélioration34. Ce chercheur reconnu estime que l'IA est encore loin du stade où l'on peut dire que l'ordinateur « comprend » à proprement parler : il souligne que percevoir et créer des concepts, ce n'est pas vraiment comprendre, et il affirme qu'il manque encore quelque chose de fondamental pour franchir ce pas34.
+
+Enfin, la crainte selon laquelle l'IA pourrait s'améliorer d'elle-même pour échapper éventuellement au contrôle des humains lui semble infondée pour trois raisons : d'abord, les techniques actuelles, extrêmement spécialisées, exigent de très longs temps d'apprentissage 35 ; ensuite, elles ne reposent pas sur une forme d'auto-programmation ; et enfin, l'auto-programmation n'est pas un axe de recherche34.
+
+Sont également pointés de possibles usages malveillants du deep learning. Il devient ainsi possible d'incruster le visage d'une personne sur une autre, à son insu, et de lui faire faire ou dire des choses qu'elle n'a pas faites (comme dans le film Running man de 1986), le deep learning recréant les mouvements du visage en rendant l'incrustation réaliste. Ainsi, plusieurs actrices comme Gal Gadot, Emma Watson, Cara Delevingne, Emma Stone, Natalie Portman ou Scarlett Johansson se sont retrouvées avec leur visage incrusté sur celui d'une actrice pornographique à l'aide d'un logiciel accessible au grand public nommé Deepfakes, soulevant des craintes quant à la généralisation d'un tel usage, permettant à n'importe qui de nuire à la réputation d'une autre personne36. Face à ce danger, plusieurs plates-formes telles que PornHub, Twitter et Reddit ont réagi en interdisant la publication de telles vidéos, et l'utilisateur « deepfakes », créateur du logiciel éponyme permettant à tout usager de créer des fausses vidéos à caractère pornographique, a été banni de reddit et son fil dédié supprimé37.
+
+En 2019, OpenAI a publié plusieurs intelligences artificielles très performantes permettant de générer un texte synthétique à partir d'un résumé. Tout en exprimant leurs inquiétudes sur les détournements possibles de ce type de technologie, les chercheurs de l'association ont renoncé à partager la version complète de l'intelligence artificielle.38
