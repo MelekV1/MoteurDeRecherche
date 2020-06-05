@@ -33,7 +33,7 @@ BDF.afficher();                         //Affichage de la bibliotheque
 
 */
 /*******************Moteur de recherche***********************/
-/*
+
 Analyseur *anz=NULL;
 ordonanceur *ord=NULL;
 Index *inx=NULL;
@@ -42,8 +42,9 @@ Extracteur *ext=NULL;
 MoteurDeRecherche MDR(inx,anz,ord,ext);
 
 MDR.SEmain();
-*/
+
 /*******************Lecture et extraction***********************/
+/*
 Extracteur *e ;
 
 ExtracteurRequete Erq;
@@ -52,16 +53,20 @@ ExtracteurDocument Erd;
 e=&Erq;
 //choisire une phrase qui a une relation avec ce document text ""origin.txt""
 vector<string> req =e->extracter("In 49 BCE, Bayek, a Medjay charged with protecting the Siwa Oasis");//extraction de la requete
+                                                                                                    //cette requete est prise de origin.txt
+                                                                                                    //covid-19 contient le terme 49
+                                                                                                    //Attack on titans contient le terme protecting
+                                                                                                    //odyssey contient le terme BCE Bayek
 
 e=&Erd;
 //extraction de 20 fichiers textes
+
 vector<string> doc1=e->extracter("biblio/odyssey.txt");//3998 mots
 vector<string> doc2=e->extracter("biblio/valhalla.txt");//2734 mots
 vector<string> doc3=e->extracter("biblio/origin.txt");//3539 mots
 vector<string> doc4=e->extracter("biblio/blackflag.txt");//5081 mots
 vector<string> doc5=e->extracter("biblio/syndicate.txt");//4330 mots
 vector<string> doc6=e->extracter("biblio/deep learning.txt");//6939 mots
-
 vector<string> doc7=e->extracter("biblio/higher ground.txt");
 vector<string> doc8=e->extracter("biblio/nba.txt");
 vector<string> doc9=e->extracter("biblio/Attack on titans.txt");
@@ -69,14 +74,14 @@ vector<string> doc10=e->extracter("biblio/MSI.txt");
 vector<string> doc11=e->extracter("biblio/dark.txt");
 vector<string> doc12=e->extracter("biblio/sony.txt");
 vector<string> doc13=e->extracter("biblio/seat.txt");
-vector<string> doc14=e->extracter("biblio/Tesla Motors ,Inc.txt");
+vector<string> doc14=e->extracter("biblio/Tesla Motors, Inc.txt");
 vector<string> doc15=e->extracter("biblio/Audi AI.txt");
 vector<string> doc16=e->extracter("biblio/bitcoin blockchain.txt");
 vector<string> doc17=e->extracter("biblio/covid-19.txt");
-vector<string> doc18=e->extracter("biblio/Alphabet.txt");
+vector<string> doc18=e->extracter("biblio/Alhpabet.txt");
 vector<string> doc19=e->extracter("biblio/Bayerische Motoren Werke.txt");
 vector<string> doc20=e->extracter("biblio/HP Inc.txt");
-
+*/
 /*******************TEST STRUCTURE MAP *************************/
 /*
 Analyseur *An   ;ordonanceur *od    ;Index *inx;
@@ -89,7 +94,6 @@ map<string,double>analyse3 =An->analyserMap(doc3);
 map<string,double>analyse4 =An->analyserMap(doc4);
 map<string,double>analyse5 =An->analyserMap(doc5);
 map<string,double>analyse6 =An->analyserMap(doc6);
-
 map<string,double>analyse7 =An->analyserMap(doc7);
 map<string,double>analyse8 =An->analyserMap(doc8);
 map<string,double>analyse9 =An->analyserMap(doc9);
@@ -140,30 +144,36 @@ od->afficher();//Affichage avanceé ,le score est inclus
 */
 /*******************TEST STRUCTURE Vector***********************/
 /*
+Analyseur *An   ;ordonanceur *od    ;Index *inx;
 IndexStructureVector isv;
 AnalyseurOccurence ano;
 ordonanceurBinaire ordo;
-An=&ano;
-od=&ordo;
-vector< TermStat >analyse1 =An->analyserVector("odyssey.txt",doc1);
-vector< TermStat >analyse2 =An->analyserVector("valhalla.txt",doc2);
-vector< TermStat >analyse3 =An->analyserVector("origin.txt",doc3);
-vector< TermStat >analyse4 =An->analyserVector("blackflage.txt",doc4);
-vector< TermStat >analyse5 =An->analyserVector("odyssey.txt",doc5);
-//vector< TermStat >analyse6 =An->analyserVector("deep learning.txt",doc6);
+An=&ano     ;od=&ordo    ;inx=&isv;
 
-isv.indexer(analyse1);
-isv.indexer(analyse2);
-isv.indexer(analyse3);
-isv.indexer(analyse4);
-isv.indexer(analyse5);
-//isv.indexer(analyse6);
-isv.sauvgarder();
 
+
+vector< TermStat >analyse1 =An->analyserVector("odyssey.txt",doc1);vector< TermStat >analyse2 =An->analyserVector("valhalla.txt",doc2);vector< TermStat >analyse3 =An->analyserVector("origin.txt",doc3);
+vector< TermStat >analyse4 =An->analyserVector("blackflage.txt",doc4);vector< TermStat >analyse5 =An->analyserVector("syndicate.txt",doc5);vector< TermStat >analyse6 =An->analyserVector("deep learning.txt",doc6);
+vector< TermStat >analyse7 =An->analyserVector("higher ground.txt",doc7);vector< TermStat >analyse8 =An->analyserVector("nba.txt",doc8);vector< TermStat >analyse9 =An->analyserVector("Attack on titans.txt",doc9);
+vector< TermStat >analyse10 =An->analyserVector("MSI.txt",doc10);vector< TermStat >analyse11 =An->analyserVector("dark.txt",doc11);vector< TermStat >analyse12 =An->analyserVector("sony.txt",doc12);
+vector< TermStat >analyse13 =An->analyserVector("seat.txt",doc13);vector< TermStat >analyse14 =An->analyserVector("Tesla Motors, Inc.txt",doc14);vector< TermStat >analyse15 =An->analyserVector("Audi AI.txt",doc15);
+vector< TermStat >analyse16 =An->analyserVector("bitcoin blockchain.txt",doc16);vector< TermStat >analyse17 =An->analyserVector("covid-19.txt",doc17);vector< TermStat >analyse18 =An->analyserVector("Alhpabet.txt",doc18);
+vector< TermStat >analyse19 =An->analyserVector("Bayerische Motoren Werke.txt",doc19);vector< TermStat >analyse20 =An->analyserVector("HP Inc.txt",doc20);
+
+isv.indexer(analyse1);isv.indexer(analyse2);isv.indexer(analyse3);isv.indexer(analyse4);isv.indexer(analyse5);isv.indexer(analyse6);isv.indexer(analyse7);isv.indexer(analyse8);isv.indexer(analyse9);isv.indexer(analyse10);
+isv.indexer(analyse11);isv.indexer(analyse12);isv.indexer(analyse13);isv.indexer(analyse14);isv.indexer(analyse15);isv.indexer(analyse16);isv.indexer(analyse17);isv.indexer(analyse18);isv.indexer(analyse19);isv.indexer(analyse20);
+
+//isv.afficheIndex();
+//isv.sauvgarder();
+isv.afficher();
 od->ordanancerVector(req ,isv);
+
+od->afficher();//Affichage avanceé ,le score est inclus
+od->afficherResultat(3);//affichage les  premieres nombre de titres de fichiers suivant l'ordre de pertinence
+                        //le nombre de titres est un parametre
 */
 /*******************TEST TFIDF***********************/
-
+/*
 Analyseur *An   ;ordonanceur *od    ;Index *inx;
 IndexStructureMap ism   ;AnalyseurFrequence ano  ;ordonanceurTFIDF ordo;
 An=&ano ;od=&ordo    ;inx=&ism;
@@ -234,5 +244,38 @@ od->afficher();//Affichage avanceé ,le score est inclus
 od->afficherResultat(3);//affichage les  premieres nombre de titres de fichiers suivant l'ordre de pertinence
                         //le nombre de titres est un parametre
 
+
+*/
+/*******************************Test Corpus proposee***********************************/
+/*
+Extracteur *e ;
+Analyseur *An   ;ordonanceur *od    ;Index *inx;
+IndexStructureMap ism   ;AnalyseurFrequence ano  ;ordonanceurTFIDF ordo;
+An=&ano ;od=&ordo    ;inx=&ism;
+ExtracteurRequete Erq;
+ExtracteurDocument Erd;
+
+auto start = std::chrono::high_resolution_clock::now();
+
+e=&Erq;
+vector<string> req =e->extracter("Hypochlorous acid is a chemical compound Its chemical formula is HClO or HOCl I");//extraction de la requete
+
+e=&Erd;
+int compteur ;
+for (compteur =0  ; compteur < 70000 ;++compteur){
+  string fichier="biblio/corpus/"+to_string(compteur)+".txt";
+  cout<<fichier<<endl;
+  vector<string> doc=e->extracter(fichier);
+  map<string,double>analyse1 =An->analyserMap(doc);
+  ism.indexer(fichier,analyse1);
+};
+od->ordanancerMap(req ,ism);
+od->afficherResultat(3);
+
+auto finish = std::chrono::high_resolution_clock::now();
+std::chrono::duration<double> elapsed = finish - start;
+std::cout << "Elapsed time: " << elapsed.count() << " s\n";
+
+*/
 return 0;
 }

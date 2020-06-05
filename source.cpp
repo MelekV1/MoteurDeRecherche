@@ -164,6 +164,7 @@ Index::Index(){};
 Index::~Index(){};
 IndexStructureVector::IndexStructureVector(){};
 void IndexStructureVector::indexer(vector<TermStat>v){
+
   for(vector<TermStat>::iterator it =v.begin() ; it!=v.end() ; ++it )
   {
   BDIndex.push_back(*it);
@@ -188,6 +189,7 @@ void IndexStructureVector::supprime(string fichierASupprimer){
 };
 void IndexStructureVector::afficheIndex(){
   cout<<BDIndex;
+
 };
 
 void IndexStructureVector::sauvgarder(){
@@ -309,8 +311,11 @@ void ordonanceur::afficher(){
 };
 
 /******************************Ordonanceur***********************************************/
-void ordonanceur::afficherResultat(int k ){
+void ordonanceur::afficherResultat(int k){
+
     vector<string>similarite=trier(recherche);
+    if (k==0){cout<<similarite;}
+    else{
     cout<<"Resultat de recherche \nclassement par ordre de pertinence decroissant               " << endl;
     cout<<"____________________________________________________________"<< endl;
     int limite =similarite.size();
@@ -321,7 +326,7 @@ void ordonanceur::afficherResultat(int k ){
             cout<<similarite[j]<<endl;
         }
     }
-
+}
 };
 vector<string> ordonanceur::trier(map<string,double> &similarite){
     multimap<double, string> intermediare;
@@ -333,44 +338,49 @@ vector<string> ordonanceur::trier(map<string,double> &similarite){
     multimap<double, string> :: reverse_iterator iter;
     vector<string>res;
     for (iter=intermediare.rbegin(); iter!=intermediare.rend(); iter++){
-       if(iter->first!=0){
+       //if(iter->first!=0){ //<---elimine les zero resultats
            res.push_back(iter->second);
-       }
+       //}
     }
     return res;
 }
+
 ordonanceur::~ordonanceur(){};
 ordonanceurOccurence::ordonanceurOccurence(){};
 void ordonanceurOccurence::ordanancerMap(vector<string> requete,IndexStructureMap & ism){
     map<string,map<string,double>>ix=ism.GetIndex();
     for(map<string,map<string,double> >::iterator fichier = ix.begin(); fichier != ix.end(); ++fichier){
+        recherche[fichier->first]=0;
         for(vector<string>::iterator mot = requete.begin(); mot != requete.end(); ++mot){
             map<string,double> ::iterator i = (fichier->second).find (*mot);
             if (i != (fichier->second).end() ){
                 recherche[fichier->first]+=(i->second);
-            }
+            }else{recherche[fichier->first]+=0;}
         }
     }
 }
+
 void ordonanceurOccurence::ordanancerVector(vector<string> requete,IndexStructureVector&isv){
   vector<TermStat> stat=isv.GetIndex();
   for (vector<string>::iterator j = requete.begin();j != requete.end();++j){
       for(vector<TermStat>::iterator i = stat.begin();i != stat.end();++i){
           if(i->mot == *j ){
             recherche[i->fichier]+=i->statistique;
-            }
+            }else{recherche[i->fichier]+=0;}
       }
   }
 }
+
 ordonanceurBinaire::ordonanceurBinaire(){};
 void ordonanceurBinaire::ordanancerMap(vector<string> requete,IndexStructureMap & ism){
     map<string,map<string,double>>ix=ism.GetIndex();
     for(map<string,map<string,double> >::iterator fichier = ix.begin(); fichier != ix.end(); ++fichier){
+        recherche[fichier->first]=0;
         for(vector<string>::iterator mot = requete.begin(); mot != requete.end(); ++mot){
             map<string,double> ::iterator i = (fichier->second).find (*mot);
             if (i != (fichier->second).end() ){
                 recherche[fichier->first] += 1;
-            }
+            }else{recherche[fichier->first]+=0;}
         }
     }
 }
@@ -379,6 +389,7 @@ void ordonanceurBinaire::ordanancerVector(vector<string> requete,IndexStructureV
     vector<TermStat> stat=isv.GetIndex();
     set<string>docs=isv.GetDocs();
     for (set<string>::iterator doc=docs.begin();doc!=docs.end();++doc){
+        recherche[*doc]=0;
         for (vector<string>::iterator mot = requete.begin(); mot != requete.end(); ++mot){
             vector<TermStat>::iterator fetch = stat.begin();
             bool found=false;
@@ -386,7 +397,7 @@ void ordonanceurBinaire::ordanancerVector(vector<string> requete,IndexStructureV
                 if(fetch->mot == *mot && fetch->fichier==*doc){
                     found=true;
                     recherche[*doc]+=1;
-                }
+                }else{recherche[*doc]+=0;}
                 ++fetch;
             }
         }
@@ -423,15 +434,19 @@ void ordonanceurTFIDF::ordanancerMap(vector<string> requete,IndexStructureMap & 
         if(NbDocumentContenantWord==0) NbDocumentContenantWord=1;
         idf[*mot]=log(VecteurIndex.size() / NbDocumentContenantWord );
     }
-
     for(map<string,map<string,double> >::iterator fichier = VecteurIndex.begin(); fichier != VecteurIndex.end(); ++fichier){
+        recherche[fichier->first]=0;
         for(vector<string>::iterator mot = requete.begin(); mot != requete.end(); ++mot){
             map<string,double> ::iterator i = (fichier->second).find (*mot);
             if (i != (fichier->second).end() ){
                 recherche[fichier->first]+=VecteurIndex[fichier->first][*mot]*idf[*mot];
+            }else{
+                recherche[fichier->first]+=0;
             }
         }
     }
+
+
 }
 void ordonanceurTFIDF::ordanancerVector(vector<string> requete,IndexStructureVector & isv){
     vector<resultat> ordre;
@@ -567,7 +582,7 @@ bool BibilothequeDeFichiers::restaurer(){
     if (valid==0) return false;
     return true;
   }else{
-  cout<<"               Erreur:Lecture Impossible"<< endl ;
+  cout<<"              Erreur:Lecture Impossible"<< endl ;
   cout<<"____________________________________________________________"<< endl;
   return false;
   }
@@ -611,10 +626,10 @@ map<string, vector<string> > MoteurDeRecherche::connecterBibliotheque(){
     return FExtractee;
 };
 void MoteurDeRecherche::SEmain(){
-        cout<<"             Connection au base de fichier "<<endl;
+        cout<<"            Connection au base de fichier "<<endl;
         cout<<"____________________________________________________________"<< endl;
         map<string , vector< string > >BaseFichier=connecterBibliotheque();
-        cout<<"             la base de fichier est connecte "<<endl;
+        cout<<"            la base de fichier est connecte "<<endl;
         cout<<"____________________________________________________________"<< endl;
         char choix1;
         AnalyseurFrequence anf;
@@ -622,7 +637,7 @@ void MoteurDeRecherche::SEmain(){
         ordonanceurOccurence oc;
         ordonanceurBinaire ob;
 
-        cout<<"               Configurez votre outil de recherche"<<endl;
+        cout<<"             Configurez votre outil de recherche"<<endl;
         cout<<"____________________________________________________________"<< endl;
         do{
         cout<<"1-Standard\n2-TFIDF\n3-Exit"<<endl;
@@ -697,7 +712,6 @@ void MoteurDeRecherche::SEmain(){
                         cin>>answer;
                         while(answer=='o'||answer=='O'||answer=='0'){
                             vector<string>req = interact();
-
                             ordre->ordanancerMap(req,ism);
                             int k;
                             cout<<"nombre de resultats voulu   :"<<endl;
@@ -724,6 +738,7 @@ void MoteurDeRecherche::SEmain(){
                           VTD=analyse->analyserVector(iterate->first,iterate->second);
                           VVTD.push_back( VTD );
                         }
+
                         isv.indexer(VVTD);
                         inx->afficher();
                         cout<<"____________________________________________________________"<< endl;
@@ -802,8 +817,11 @@ void MoteurDeRecherche::SEmain(){
                 while(answer=='o'||answer=='O'||answer=='0'){
                     vector<string>req = interact();
                     ordre->ordanancerMap(req,ism);
+                    int k;
+                    cout<<"nombre de resultats voulu   :"<<endl;
+                    cin>>k;
                     cout<<"                      Resultats"<<endl;
-                    ordre->afficherResultat(3);
+                    ordre->afficherResultat(k);
                     char avancee;
                     cout<<"voire plus de detaille sur le resultat             (o/n)?\n>>";
                     cin>>avancee;

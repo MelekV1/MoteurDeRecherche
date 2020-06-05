@@ -12,18 +12,18 @@
 #include <algorithm>
 using namespace std;
 
-struct TermStat
+struct TermStat//Triplet statistique
 {
   string fichier;
   string mot;
   double statistique;
 };
-struct resultat
+struct resultat//structure pour realiser l'ordonancement de la structure de donnes vector
 {
     string nomDeFichier;
     double score;
 };
-struct FichierDonne
+struct FichierDonne// structure pour realiser des extraction ,analyse multiple
 {
     string Fichier;
     map<string,double> Donne;
@@ -34,9 +34,8 @@ class Extracteur //la classe est abstraite
 {
 
 public:
-
   set<char> CarVide={'.' ,':',',',';' , '?' , '!','(',')','\n','\t','"'};
-  set<string> MotVide={"the","a","with","for","le","la","in"};
+  set<string> MotVide={"the","a","with","for","le","la","in","for","to","is","and","et"};
   Extracteur();
   void nettoyer(string & );//suppression des caracteres vides qui n'ont aucun sens et qui affecte le temps de calcul
   virtual vector<string> extracter(string)=0;//methode virtuel pure car il n'y a pas aucun sens de definir le type d'extraction ici
@@ -151,7 +150,7 @@ public:
     virtual void ordanancerVector(vector<string> ,IndexStructureVector&)=0;
     vector<string>  trier(map<string,double> &);
     void afficher();
-    void afficherResultat(int );
+    void afficherResultat(int = 0 );
     friend  ostream& operator<<(ostream& flux ,map<string,double>& );
     friend  ostream& operator<<(ostream& flux ,vector<string>& );
     ~ordonanceur();
